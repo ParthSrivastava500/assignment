@@ -1,0 +1,25 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Define two integer arrays
+        int[] array1 = { 2, 4, 6, 8, 10 };
+        int[] array2 = { 4, 8, 12, 16, 20 };
+
+        // Find the common elements
+        Console.WriteLine("Common elements between the two arrays:");
+        foreach (int num1 in array1)
+        {
+            foreach (int num2 in array2)
+            {
+                if (num1 == num2)
+                {
+                    Console.Write(num1 + " ");
+                    break; // Move to the next element in array1
+                }
+            }
+        }
+    }
+}

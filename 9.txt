@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Define an integer array with duplicates
+        int[] numbers = { 5, 2, 8, 2, 9, 5, 3, 7, 8 };
+
+        // Create a HashSet to store unique elements
+        HashSet<int> uniqueSet = new HashSet<int>();
+
+        // Create a new array to store the unique elements
+        List<int> uniqueList = new List<int>();
+
+        // Loop through each element in the original array
+        foreach (int num in numbers)
+        {
+            // If the element is not in the HashSet, add it to both the HashSet and the new array
+            if (!uniqueSet.Contains(num))
+            {
+                uniqueSet.Add(num);
+                uniqueList.Add(num);
+            }
+        }
+
+        // Convert the List back to an array
+        int[] uniqueNumbers = uniqueList.ToArray();
+
+        // Print the array with duplicates removed
+        Console.WriteLine("Array with duplicates removed:");
+        foreach (int num in uniqueNumbers)
+        {
+            Console.Write(num + " ");
+        }
+    }
+}

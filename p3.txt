@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Define an integer array
+        int[] numbers = { 15, 7, 23, 10, 42 };
+
+        // Initialize a variable to store the largest element
+        int largest = numbers[0];
+
+        // Loop through each element in the array
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            // Check if the current element is larger than the stored largest element
+            if (numbers[i] > largest)
+            {
+                largest = numbers[i];
+            }
+        }
+
+        // Print the largest element
+        Console.WriteLine("The largest element in the array is: " + largest);
+    }
+}

@@ -1,0 +1,35 @@
+using System;
+
+class BankAccount
+{
+    public string AccountNumber { get; set; }
+    public decimal Balance { get; set; }
+}
+
+sealed class SavingsAccount : BankAccount
+{
+    public decimal InterestRate { get; set; }
+
+    public SavingsAccount(string accountNumber, decimal balance, decimal interestRate)
+    {
+        AccountNumber = accountNumber;
+        Balance = balance;
+        InterestRate = interestRate;
+    }
+
+    public void CalculateInterest()
+    {
+        decimal interestAmount = Balance * InterestRate / 100;
+        Balance += interestAmount;
+        Console.WriteLine($"Interest of {interestAmount:C} added. New balance: {Balance:C}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        SavingsAccount savingsAccount = new SavingsAccount("123456789", 1000.00M, 2.5M);
+        savingsAccount.CalculateInterest();
+    }
+}

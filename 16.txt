@@ -1,0 +1,61 @@
+// EmployeeDetails.cs (Part 1 - Properties)
+public partial class Employee
+{
+    public int EmployeeId { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Department { get; set; }
+    public decimal BaseSalary { get; set; }
+}
+// EmployeeSalary.cs (Part 2 - Methods for Salary Calculation)
+using System;
+
+public partial class Employee
+{
+    public decimal CalculateSalary()
+    {
+        return BaseSalary;
+    }
+
+    public decimal CalculateSalaryWithBonus(decimal bonus)
+    {
+        return BaseSalary + bonus;
+    }
+
+    public decimal CalculateSalaryWithOvertime(decimal hourlyRate, double hoursWorked)
+    {
+        decimal overtimePay = 0;
+        
+        if (hoursWorked > 40)
+        {
+            double overtimeHours = hoursWorked - 40;
+            overtimePay = (decimal)(overtimeHours * hourlyRate * 1.5);
+        }
+
+        return BaseSalary + overtimePay;
+    }
+}
+// Program.cs (Main Program)
+class Program
+{
+    static void Main(string[] args)
+    {
+        Employee employee = new Employee
+        {
+            EmployeeId = 1,
+            FirstName = "John",
+            LastName = "Doe",
+            Department = "Engineering",
+            BaseSalary = 50000.00M
+        };
+
+        // Calculate salary based on different factors
+        decimal regularSalary = employee.CalculateSalary();
+        decimal bonusSalary = employee.CalculateSalaryWithBonus(500.00M);
+        decimal overtimeSalary = employee.CalculateSalaryWithOvertime(25.00M, 45);
+
+        Console.WriteLine($"Regular Salary: {regularSalary:C}");
+        Console.WriteLine($"Salary with Bonus: {bonusSalary:C}");
+        Console.WriteLine($"Salary with Overtime: {overtimeSalary:C}");
+    }
+}

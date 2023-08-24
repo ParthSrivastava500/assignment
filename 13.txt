@@ -1,0 +1,31 @@
+using System;
+
+static class MathHelper
+{
+    public static double CalculateAverage(int[] numbers)
+    {
+        if (numbers == null || numbers.Length == 0)
+        {
+            throw new ArgumentException("Input array is empty or null.");
+        }
+
+        int sum = 0;
+        foreach (int num in numbers)
+        {
+            sum += num;
+        }
+
+        return (double)sum / numbers.Length;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] values = { 5, 10, 15, 20, 25 };
+        double average = MathHelper.CalculateAverage(values);
+
+        Console.WriteLine("The average of the values is: " + average);
+    }
+}

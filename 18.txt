@@ -1,0 +1,75 @@
+// Animal.cs (Abstract Base Class)
+public abstract class Animal
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public Animal(string name, int age)
+    {
+        Name = name;
+        Age = age;
+    }
+
+    public abstract void MakeSound();
+}
+// Dog.cs (Derived Class)
+using System;
+
+public class Dog : Animal
+{
+    public string Breed { get; set; }
+
+    public Dog(string name, int age, string breed) : base(name, age)
+    {
+        Breed = breed;
+    }
+
+    public override void MakeSound()
+    {
+        Console.WriteLine("Woof woof!");
+    }
+
+    public void Fetch()
+    {
+        Console.WriteLine("Dog is fetching.");
+    }
+}
+// Cat.cs (Derived Class)
+using System;
+
+public class Cat : Animal
+{
+    public bool IsLazy { get; set; }
+
+    public Cat(string name, int age, bool isLazy) : base(name, age)
+    {
+        IsLazy = isLazy;
+    }
+
+    public override void MakeSound()
+    {// Program.cs (Main Program)
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Dog dog = new Dog("Buddy", 3, "Labrador");
+        Cat cat = new Cat("Whiskers", 5, true);
+
+        dog.MakeSound();
+        dog.Fetch();
+
+        cat.MakeSound();
+        cat.Scratch();
+    }
+}
+
+        Console.WriteLine("Meow meow!");
+    }
+
+    public void Scratch()
+    {
+        Console.WriteLine("Cat is scratching.");
+    }
+}

@@ -1,0 +1,32 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Define an integer array
+        int[] numbers = { 15, 7, 23, 10, 42, 33, 8 };
+
+        // Initialize variables to store counts
+        int evenCount = 0;
+        int oddCount = 0;
+
+        // Loop through each element in the array
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            // Check if the current element is even
+            if (numbers[i] % 2 == 0)
+            {
+                evenCount++;
+            }
+            else
+            {
+                oddCount++;
+            }
+        }
+
+        // Print the counts
+        Console.WriteLine("Number of even elements: " + evenCount);
+        Console.WriteLine("Number of odd elements: " + oddCount);
+    }
+}

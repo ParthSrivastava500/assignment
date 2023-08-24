@@ -1,0 +1,29 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Define an integer array
+        int[] numbers = { 1, 2, 3, 4, 5 };
+
+        // Calculate the midpoint index
+        int midIndex = numbers.Length / 2;
+
+        // Loop through the first half of the array
+        for (int i = 0; i < midIndex; i++)
+        {
+            // Swap the elements at index 'i' and its corresponding element from the end
+            int temp = numbers[i];
+            numbers[i] = numbers[numbers.Length - 1 - i];
+            numbers[numbers.Length - 1 - i] = temp;
+        }
+
+        // Print the reversed array
+        Console.WriteLine("Reversed array:");
+        foreach (int num in numbers)
+        {
+            Console.Write(num + " ");
+        }
+    }
+}

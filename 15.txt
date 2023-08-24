@@ -1,0 +1,28 @@
+// Person.cs (Part 1 - Properties)
+public partial class Person
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+}
+// PersonMethods.cs (Part 2 - Methods)
+using System;
+
+public partial class Person
+{
+    public void PrintFullName()
+    {
+        Console.WriteLine($"Full Name: {FirstName} {LastName}");
+    }
+}
+// Program.cs (Main Program)
+class Program
+{
+    static void Main(string[] args)
+    {
+        Person person = new Person();
+        person.FirstName = "John";
+        person.LastName = "Doe";
+
+        person.PrintFullName();
+    }
+}
